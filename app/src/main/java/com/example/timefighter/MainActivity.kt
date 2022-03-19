@@ -11,6 +11,7 @@ import android.widget.Toast
 class MainActivity : AppCompatActivity() {
 
     private val TAG = MainActivity::class.java.simpleName
+
     private var score = 0
     private lateinit var gameScoreTextView: TextView
     private lateinit var timeLeftTextView: TextView
@@ -48,10 +49,13 @@ class MainActivity : AppCompatActivity() {
         outState.putInt(SCORE_KEY, score)
         outState.putInt(TIME_LEFT_KEY, timeLeft)
         countDownTimer.cancel()
-        Log.d(TAG,
+        Log.d(
+            TAG,
             "onSaveInstanceState: " +
-                    "Saving Score: $score & TimeLeft: $timeLeft")
+                    "Saving Score: $score & TimeLeft: $timeLeft"
+        )
     }
+
     // 3
     override fun onDestroy() {
         super.onDestroy()
@@ -80,6 +84,7 @@ class MainActivity : AppCompatActivity() {
                 timeLeft = millisUntilFinished.toInt() / 1000
                 timeLeftTextView.text = getString(R.string.time_left, timeLeft)
             }
+
             override fun onFinish() {
                 endGame()
             }
@@ -95,13 +100,16 @@ class MainActivity : AppCompatActivity() {
         timeLeftTextView.text = restoredTime
 
         countDownTimer = object : CountDownTimer(
-            (timeLeft * 1000L), countDownInterval) {
+            (timeLeft * 1000L), countDownInterval
+        ) {
 
             override fun onTick(millisUntilFinished: Long) {
                 timeLeft = millisUntilFinished.toInt() / 1000
 
-                val timeLeftString = getString(R.string.time_left,
-                    timeLeft)
+                val timeLeftString = getString(
+                    R.string.time_left,
+                    timeLeft
+                )
                 timeLeftTextView.text = timeLeftString
             }
 
@@ -119,8 +127,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun endGame() {
-        Toast.makeText(this, getString(
-            R.string.game_over_message, score), Toast.LENGTH_LONG
+        Toast.makeText(
+            this, getString(
+                R.string.game_over_message, score
+            ), Toast.LENGTH_LONG
         ).show()
 
         resetGame()
