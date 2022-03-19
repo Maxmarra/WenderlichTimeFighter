@@ -11,7 +11,6 @@ import android.widget.Toast
 class MainActivity : AppCompatActivity() {
 
     private val TAG = MainActivity::class.java.simpleName
-
     private var score = 0
     private lateinit var gameScoreTextView: TextView
     private lateinit var timeLeftTextView: TextView
