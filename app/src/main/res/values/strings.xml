@@ -1,9 +1,9 @@
+<resources>
+        <string name="app_name">Борец со временем</string>
+        <string name="tap_me">Кликай на меня!</string>
 
-    <resources>
-        <string name="app_name">Timefighter</string>
-        <string name="tap_me">Tap me!</string>
-        <string name="your_score">Your Score: %1$d</string>
-        <string name="time_left">Time left: %1$d</string>
-        <string name="game_over_message">
-    Time\'s up! Your score was: %1$d</string>
+        <string name="game_over_message"> Время закончилось! Всего очков: %1$d</string>
+
+        <string name="score">Очки: %1$d</string>
+        <string name="time_left">Осталось времени: %1$d</string>
     </resources>
